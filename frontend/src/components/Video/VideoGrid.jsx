@@ -20,7 +20,7 @@ function VideoGrid() {
   useEffect(() => {
     const renderVideo = async () => {
       try {
-        const response = await axiosInstance.get(`/api/videos`);
+        const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/videos`);
         console.log(response);
         setVideos(response.data.data.docs);
       } catch (error) {
@@ -38,7 +38,7 @@ function VideoGrid() {
 
    const addToHistory = async (videoId) => {
     try {
-      const response = await axiosInstance.post(`/api/users/addVideoToWatchHistory`, { videoId });
+      const response = await axiosInstance.post(`https://yt-backend-lo6n.onrender.com/api/v1/users/addVideoToWatchHistory`, { videoId });
       toast.success(response.data.message);
     } catch (error) {
       toast.error(parseErrorMessage(error.response.data));
@@ -52,7 +52,7 @@ function VideoGrid() {
 
   const addview = async (videoId) => {
     try {
-      const response = await axiosInstance.patch(`/api/videos/add/view/${videoId}`);
+      const response = await axiosInstance.patch(`https://yt-backend-lo6n.onrender.com/api/v1/videos/add/view/${videoId}`);
       // toast.success(response.data.message);
     } catch (error) {
       const errorMessage = error.response ? error.response.data : "can not add view. Please try again...";

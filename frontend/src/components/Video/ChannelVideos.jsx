@@ -56,7 +56,7 @@ function ChannelVideos() {
 
   const renderVideo = async () => {
     try {
-      const response = await axiosInstance.get(`/api/videos/allVideosOfUser/${userId}`); 
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/videos/allVideosOfUser/${userId}`); 
       // toast.success(response.data.message); 
       console.log(response); 
       setVideos(response.data.data.result) ; 

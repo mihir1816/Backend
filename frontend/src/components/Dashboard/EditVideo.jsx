@@ -23,7 +23,7 @@ function EditVideo({ videoId, onClose , onUpdateSuccess }) {
 
     try {
       console.log(data) ;
-      const response = await axiosInstance.patch(`/api/videos/${videoId}`, formData);
+      const response = await axiosInstance.patch(`https://yt-backend-lo6n.onrender.com/api/v1/videos/${videoId}`, formData);
       toast.success(response.data.message);
       onClose(); 
       if (onUpdateSuccess) {

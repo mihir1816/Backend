@@ -12,7 +12,7 @@ const initialState = {
 
 export const getChannelStats = createAsyncThunk("dashboard/getChannelStats", async () => {
   try {
-    const response = await axiosInstance.get(`/api/dashboard/states`);
+    const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/dashboard/states`);
     toast.success(response.data.message);
     return response.data.data;
   } catch (error) {

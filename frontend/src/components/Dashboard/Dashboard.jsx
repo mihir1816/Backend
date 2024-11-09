@@ -76,7 +76,7 @@ function Dashboard() {
 
   const fetchChannelData = async () => {
     try {
-      const response = await axiosInstance.get(`/api/dashboard/stats`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/dashboard/stats`);
       // toast.success(response.data.message);
       console.log(response) ; 
       setchannelData(response.data.data);
@@ -91,7 +91,7 @@ function Dashboard() {
   const [videosWithLikes, setvideosWithLikes] = useState(null) ; 
   const fetchChannelVideoWithLikeData = async () => {
     try {
-      const response = await axiosInstance.get(`/api/dashboard/videos`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/dashboard/videos`);
       // toast.success(response.data.message);
       setvideosWithLikes(response.data.data);
     } catch (error) {
@@ -114,7 +114,7 @@ function Dashboard() {
 
   const togglePublishStatus = async (videoId) => {
     try {
-      const response = await axiosInstance.patch(`/api/videos/toggle/publish/${videoId}`);
+      const response = await axiosInstance.patch(`https://yt-backend-lo6n.onrender.com/api/v1/videos/toggle/publish/${videoId}`);
       toast.success(response.data.message);
       await fetchChannelVideoWithLikeData() ;
     } catch (error) {

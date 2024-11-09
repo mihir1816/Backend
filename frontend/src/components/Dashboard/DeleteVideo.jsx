@@ -10,7 +10,7 @@ function DeleteVideo({ videoId, onClose , onUpdateSuccess}) {
     
   const deleteVideo = async () => {
     try {
-      const response = await axiosInstance.delete(`/api/videos/${videoId}`);
+      const response = await axiosInstance.delete(`https://yt-backend-lo6n.onrender.com/api/v1/videos/${videoId}`);
       toast.success(response.data.message);
       onClose() ; 
       if (onUpdateSuccess) {

@@ -61,7 +61,7 @@ function MyChannelVideos() {
   
   const addToHistory = async (videoId) => {
     try {
-      const response = await axiosInstance.post(`/api/users/addVideoToWatchHistory`, { videoId });
+      const response = await axiosInstance.post(`https://yt-backend-lo6n.onrender.com/api/v1/users/addVideoToWatchHistory`, { videoId });
       //  toast.success(response.data.message);
     } catch (error) {
       // toast.error(parseErrorMessage(error.response.data));
@@ -71,7 +71,7 @@ function MyChannelVideos() {
 
   const addview = async (videoId) => {
     try {
-      const response = await axiosInstance.patch(`/api/videos/add/view/${videoId}`);
+      const response = await axiosInstance.patch(`https://yt-backend-lo6n.onrender.com/api/v1/videos/add/view/${videoId}`);
       // toast.success(response.data.message);
     } catch (error) {
       const errorMessage = error.response ? error.response.data : "can not add view. Please try again...";
@@ -82,7 +82,7 @@ function MyChannelVideos() {
   
 const renderVideo = async () => {
   try {
-    const response = await axiosInstance.get(`/api/videos/allVideosOfUser/${user?._id}`); 
+    const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/videos/allVideosOfUser/${user?._id}`); 
     // toast.success(response.data.message); 
     console.log(response); 
     setVideos(response.data.data.result) ; 

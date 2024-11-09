@@ -16,7 +16,7 @@ function Subscribers() {
 
   const fetchSubList = async () => {
     try {
-      const response = await axiosInstance.get(`/api/subscriptions/c/${user?._id}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/subscriptions/c/${user?._id}`);
       setsubscriberList(response.data.data)
       // toast.success(response.data.message);
     } catch (error) {
@@ -27,7 +27,7 @@ function Subscribers() {
 
   const toggleSub = async (channelId) => {
     try {
-      const response = await axiosInstance.post(`/api/subscriptions/t/${channelId}`);
+      const response = await axiosInstance.post(`https://yt-backend-lo6n.onrender.com/api/v1/subscriptions/t/${channelId}`);
       // toast.success(response.data.message);
       await fetchSubList();
     } catch (error) {

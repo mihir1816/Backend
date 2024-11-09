@@ -10,7 +10,7 @@ function DeletePlayList({ playListId, onClose }) {
     
   const deletePlaylist = async () => {
     try {
-      const response = await axiosInstance.delete(`/api/playlist/${playListId}`);
+      const response = await axiosInstance.delete(`https://yt-backend-lo6n.onrender.com/api/v1/playlist/${playListId}`);
       toast.success(response.data.message);
       onClose() ;
     } catch (error) {

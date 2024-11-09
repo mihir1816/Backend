@@ -16,7 +16,7 @@ function ChangePassword() {
     const { oldPassword, newPassword } = data; 
 
     try {
-      const response = await axiosInstance.post('/api/users/change-password', {
+      const response = await axiosInstance.post('https://yt-backend-lo6n.onrender.com/api/v1/users/change-password', {
         oldPassword,
         newPassword,
       });

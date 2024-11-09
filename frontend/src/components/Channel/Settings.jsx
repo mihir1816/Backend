@@ -14,7 +14,7 @@ function Settings() {
 
   const getUser = async () => {
     try {
-      const response = await axiosInstance.get("/api/users/current-user");
+      const response = await axiosInstance.get("https://yt-backend-lo6n.onrender.com/api/v1/users/current-user");
       toast.success("get current user successfully...");
       setUser(response.data.data);
       console.log(user) ; 
@@ -45,7 +45,7 @@ function Settings() {
       formDataCover.append('coverImage', data.coverImage[0]);
   
       try {
-        const response = await axiosInstance.patch('/api/users/cover-image', formDataCover, config);
+        const response = await axiosInstance.patch('https://yt-backend-lo6n.onrender.com/api/v1/users/cover-image', formDataCover, config);
         toast.success(response.data.message);
       } catch (error) {
         const errorMessage = error.response ? error.response.data : "Cannot change cover image info. Please try again...";
@@ -59,7 +59,7 @@ function Settings() {
       formDataAvatar.append('avatar', data.avatar[0]);
   
       try {
-        const response = await axiosInstance.patch('/api/users/avatar', formDataAvatar, config);
+        const response = await axiosInstance.patch('https://yt-backend-lo6n.onrender.com/api/v1/users/avatar', formDataAvatar, config);
         toast.success(response.data.message);
       } catch (error) {
         const errorMessage = error.response ? error.response.data : "Cannot change avatar info. Please try again...";

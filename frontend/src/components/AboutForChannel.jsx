@@ -18,7 +18,7 @@ const AboutSection = () => {
 
     const renderUser = async () => {
       try {
-        const response = await axiosInstance.get(`/api/users/c/${username}`); 
+        const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/users/c/${username}`); 
         // toast.success(response.data.message); 
         console.log(response); 
         setuser(response.data.data) ; 

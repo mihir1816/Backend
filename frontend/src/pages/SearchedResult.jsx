@@ -65,7 +65,7 @@ function SearchedResult() {
         if (query) {
           const renderVideo = async () => {
             try {
-              const response = await axiosInstance.get(`/api/videos`);
+              const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/videos`);
               const all_videos = response?.data?.data?.docs;
               const normalizedQuery = query.toLowerCase();
       

@@ -42,7 +42,7 @@ export const getSubscribedChannels = createAsyncThunk(
   "subscription/getSubscribedChannels",
   async (subscriberId) => {
     try {
-      const response = await axiosInstance.get(`/api/subscriptions/c/${subscriberId}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/subscriptions/c/${subscriberId}`);
       toast.success(response.data.message);
       return response.data.data;
     } catch (error) {

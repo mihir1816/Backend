@@ -19,7 +19,7 @@ function ChannelSubscribed() {
 
   const renderUser = async () => {
     try {
-      const response = await axiosInstance.get(`/api/users/c/${username}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/users/c/${username}`);
       // toast.success(response.data.message);
       console.log(response);
       setuser(response.data.data);
@@ -34,7 +34,7 @@ function ChannelSubscribed() {
  
   const rendersubscribedChannels = async () => {
     try {
-      const response = await axiosInstance.get(`/api/subscriptions/u/${userId}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/subscriptions/u/${userId}`);
       // toast.success(response.data.message);
       setSubscribedChannels(response.data.data);
     } catch (error) {

@@ -17,7 +17,7 @@ export const selectCurrentUser = (state) => {
 
 export const login = createAsyncThunk("auth/login", async (data, { rejectWithValue }) => {
   try {
-    const response = await axiosInstance.post("/api/users/login", data);
+    const response = await axiosInstance.post("https://yt-backend-lo6n.onrender.com/api/v1/users/login", data);
     const { accessToken, refreshToken, user } = response.data.data;
     toast.success(response.data.message + " 🤩");
     return user;
@@ -30,7 +30,7 @@ export const login = createAsyncThunk("auth/login", async (data, { rejectWithVal
 
 export const signup = createAsyncThunk("auth/signup", async (data) => {
   try {
-    const response = await axiosInstance.post("/api/users/register", data);
+    const response = await axiosInstance.post("https://yt-backend-lo6n.onrender.com/api/v1/users/register", data);
     toast.success(response.data.message + " 🤩");
     return response.data.data.user; 
   } catch (error) {
@@ -41,7 +41,7 @@ export const signup = createAsyncThunk("auth/signup", async (data) => {
 
 export const logout = createAsyncThunk("auth/logout", async () => {
   try {
-    await axiosInstance.post("/api/users/logout");
+    await axiosInstance.post("https://yt-backend-lo6n.onrender.com/api/v1/users/logout");
     toast.success("Logged out successfully...");
   } catch (error) {
     toast.error(parseErrorMessage(error.response.data));
@@ -51,7 +51,7 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 export const getCurrentUser = createAsyncThunk("auth/getCurrentUser", async () => {
   console.log("step 2 : getCurrentUser dispatched")
   try {
-    const response = await axiosInstance.get("/api/users/current-user");
+    const response = await axiosInstance.get("https://yt-backend-lo6n.onrender.com/api/v1/users/current-user");
     toast.success("get current user successfully...");
     return response.data.data;
   } catch (error) {

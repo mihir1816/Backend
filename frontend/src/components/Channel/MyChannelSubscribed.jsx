@@ -17,7 +17,7 @@ function MyChannelSubscribed() {
  
   const rendersubscribedChannels = async () => {
     try {
-      const response = await axiosInstance.get(`/api/subscriptions/u/${user?._id}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/subscriptions/u/${user?._id}`);
       toast.success(response.data.message);
       setSubscribedChannels(response.data.data);
     } catch (error) {

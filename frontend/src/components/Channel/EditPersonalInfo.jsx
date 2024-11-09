@@ -30,7 +30,7 @@ function PersonalInfoForm() {
     };
 
     try {
-      const response = await axiosInstance.patch(`/api/users/update-account`, updatedInfo);
+      const response = await axiosInstance.patch(`https://yt-backend-lo6n.onrender.com/api/v1/users/update-account`, updatedInfo);
       toast.success(response.data.message);
     } catch (error) {
       const errorMessage = error.response ? error.response.data : "Cannot change personal info. Please try again...";

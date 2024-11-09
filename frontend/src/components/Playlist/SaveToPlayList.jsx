@@ -11,7 +11,7 @@ const SaveToPlayList = ({ videoId, onClose, userId }) => {
 
   const fetchPlayLists = async () => {
     try {
-      const response = await axiosInstance.get(`/api/playlist/user/${userId}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/playlist/user/${userId}`);
       toast.success(response.data.message);
       setExistingPlaylist(response.data.data);
 
@@ -40,7 +40,7 @@ const SaveToPlayList = ({ videoId, onClose, userId }) => {
       description: ""
     };
     try { 
-      const response = await axiosInstance.post(`/api/playlist/`, data); 
+      const response = await axiosInstance.post(`https://yt-backend-lo6n.onrender.com/api/v1/playlist/`, data); 
       toast.success(response.data.message); 
       console.log(response); 
       setPlaylistName(''); 
@@ -64,10 +64,10 @@ const SaveToPlayList = ({ videoId, onClose, userId }) => {
   
     try {
       if (newCheckedState) {
-        const response = await axiosInstance.patch(`/api/playlist/add/${videoId}/${playlistId}`);
+        const response = await axiosInstance.patch(`https://yt-backend-lo6n.onrender.com/api/v1/playlist/add/${videoId}/${playlistId}`);
         toast.success(response.data.message); 
       } else {
-        const response = await axiosInstance.patch(`/api/playlist/remove/${videoId}/${playlistId}`, { videoId });
+        const response = await axiosInstance.patch(`https://yt-backend-lo6n.onrender.com/api/v1/playlist/remove/${videoId}/${playlistId}`, { videoId });
         toast.success(response.data.message); 
       }
       console.log("status of aviability has been updated...")

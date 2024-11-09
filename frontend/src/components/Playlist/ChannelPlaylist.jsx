@@ -43,7 +43,7 @@ function ChannelPlaylist() {
   const renderPlayList = async () => {
     try {
       console.log("userId : " +   userId)
-      const response = await axiosInstance.get(`/api/playlist/user/${userId}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/playlist/user/${userId}`);
       console.log(response) ; 
       // toast.success(response.data.message);
       setPlaylists(response.data.data);

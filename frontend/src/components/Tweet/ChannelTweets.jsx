@@ -41,7 +41,7 @@ function ChannelTweets() {
 
   const renderUser = async () => {
     try {
-      const response = await axiosInstance.get(`/api/users/c/${username}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/users/c/${username}`);
       // toast.success(response.data.message);
       console.log(response);
       setuser(response.data.data);
@@ -53,7 +53,7 @@ function ChannelTweets() {
 
   const renderTweets = async () => {
     try {
-      const response = await axiosInstance.get(`/api/tweets/user/${userId}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/tweets/user/${userId}`);
       // toast.success(response.data.message);
       console.log(response);
       setTweets(response.data.data);
@@ -65,7 +65,7 @@ function ChannelTweets() {
 
   const toggleLike = async (tweetId) => {
     try {
-      const response = await axiosInstance.post(`/api/likes/toggle/t/${tweetId}`);
+      const response = await axiosInstance.post(`https://yt-backend-lo6n.onrender.com/api/v1/likes/toggle/t/${tweetId}`);
       // toast.success(response.data.message);
       await renderTweets()
     } catch (error) {

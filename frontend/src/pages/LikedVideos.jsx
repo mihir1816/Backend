@@ -13,7 +13,7 @@ function LikedVideos() {
   useEffect(() => {
     const renderVideo = async () => {
       try {
-        const response = await axiosInstance.get(`/api/likes/videos`);
+        const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/likes/videos`);
         // toast.success(response.data.message);
         const availableVideos = response.data.data.filter(video => video.video !== null);
         setVideos(availableVideos);

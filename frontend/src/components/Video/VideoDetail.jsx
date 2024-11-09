@@ -29,7 +29,7 @@ function VideoDetail() {
         console.error("Owner ID is not available.");
         return;
       }
-      const response = await axiosInstance.get(`/api/subscriptions/c/${ownerId}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/subscriptions/c/${ownerId}`);
       setNoOfSubscribers(response.data.data.length);
       // toast.success(response.data.message);
     } catch (error) {
@@ -41,7 +41,7 @@ function VideoDetail() {
   // Function to fetch video data and ownerId
   const fetchVideoData = async () => {
     try {
-      const response = await axiosInstance.get(`/api/videos/${videoId}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/videos/${videoId}`);
       setPlayingVideo(response.data.data);
       setOwnerId(response?.data?.data?.owner?._id);
       // toast.success(response.data.message);
@@ -54,7 +54,7 @@ function VideoDetail() {
   //for adding view
   const addview = async (videoId) => {
     try {
-      const response = await axiosInstance.patch(`/api/videos/add/view/${videoId}`);   
+      const response = await axiosInstance.patch(`https://yt-backend-lo6n.onrender.com/api/v1/videos/add/view/${videoId}`);   
       // toast.success(response.data.message);   
       await renderVideo() ;  
     } catch (error) {
@@ -67,7 +67,7 @@ function VideoDetail() {
   // to add to watch history
   const addToHistory = async (videoId) => {
     try {
-      const response = await axiosInstance.post(`/api/users/addVideoToWatchHistory`, { videoId });
+      const response = await axiosInstance.post(`https://yt-backend-lo6n.onrender.com/api/v1/users/addVideoToWatchHistory`, { videoId });
       // toast.success(response.data.message);
     } catch (error) {
       // toast.error(parseErrorMessage(error.response.data));
@@ -83,7 +83,7 @@ function VideoDetail() {
    const [subStatus, setSubStatus] = useState(true);
   const fetchSubStatus = async () => {
     try {
-      const response = await axiosInstance.post(`/api/subscriptions/subStatus`, {
+      const response = await axiosInstance.post(`https://yt-backend-lo6n.onrender.com/api/v1/subscriptions/subStatus`, {
         channelId: ownerId 
       });
       setSubStatus(response.data.data.alreadySubscribed); 
@@ -104,7 +104,7 @@ function VideoDetail() {
   // Function to toggle subscription
   const toggleSub = async () => {
     try {
-      const response = await axiosInstance.post(`/api/subscriptions/t/${ownerId}`);
+      const response = await axiosInstance.post(`https://yt-backend-lo6n.onrender.com/api/v1/subscriptions/t/${ownerId}`);
       await fetchSubStatus() ;
       await fetchNoOfSub();
       toast.success(response.data.message);
@@ -143,7 +143,7 @@ function VideoDetail() {
   const [videos, setVideos] = useState(null);
   const renderVideo = async () => {
     try {
-      const response = await axiosInstance.get(`/api/videos`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/videos`);
       // toast.success(response.data.message);
       setVideos(response.data.data.docs);
     } catch (error) {
@@ -205,7 +205,7 @@ function VideoDetail() {
       // Function to load all comments for the video
       const renderComments = async () => {
         try {
-          const response = await axiosInstance.get(`/api/comments/${videoId}`);
+          const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/comments/${videoId}`);
           toast.success(response.data.message);
           console.log(response);
           setAllComments(response.data.data.docs);
@@ -221,7 +221,7 @@ function VideoDetail() {
         if (newComment.trim()) {
           try {
             console.log("Creating comment with data: " + newComment);
-            const response = await axiosInstance.post(`/api/comments/${videoId}`, { commentContent: newComment });
+            const response = await axiosInstance.post(`https://yt-backend-lo6n.onrender.com/api/v1/comments/${videoId}`, { commentContent: newComment });
             // toast.success(response.data.message);
             // Refresh comments after adding a new one
             await renderComments(); // Call renderComments to refresh the list
@@ -247,7 +247,7 @@ function VideoDetail() {
       const [likeStatus, setLikeStatus] = useState(false)
       const fetchnoOfLikes= async () => {
         try {
-          const response = await axiosInstance.get(`/api/likes/likecount/v/${videoId}`);
+          const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/likes/likecount/v/${videoId}`);
           // toast.success(response.data.message);
           console.log(response); 
           setNoOfLikes(response.data.count); 
@@ -259,7 +259,7 @@ function VideoDetail() {
       };
       const toggleLike = async () => {
           try {
-            const response = await axiosInstance.post(`/api/likes/toggle/v/${videoId}`);
+            const response = await axiosInstance.post(`https://yt-backend-lo6n.onrender.com/api/v1/likes/toggle/v/${videoId}`);
             await fetchnoOfLikes()
             // toast.success(response.data.message);
           } catch (error) {

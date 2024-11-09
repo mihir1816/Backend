@@ -19,7 +19,7 @@ function UploadVideo({ onClose, onUpdateSuccess }) {
       formData.append("videoFile", data.videoFile[0]);
       formData.append("thumbnail", data.thumbnail[0]);
 
-      const response = await axiosInstance.post("/api/videos/", formData, {
+      const response = await axiosInstance.post("https://yt-backend-lo6n.onrender.com/api/v1/videos/", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

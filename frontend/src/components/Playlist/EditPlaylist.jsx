@@ -24,7 +24,7 @@ function EditPlaylist({ playListId, onClose , onUpdateSuccess }) {
 
     try {
       console.log(data) ;
-      const response = await axiosInstance.patch(`/api/playlist/${playListId}`, formData);
+      const response = await axiosInstance.patch(`https://yt-backend-lo6n.onrender.com/api/v1/playlist/${playListId}`, formData);
       toast.success(response.data.message); 
       onClose(); 
       if (onUpdateSuccess) {

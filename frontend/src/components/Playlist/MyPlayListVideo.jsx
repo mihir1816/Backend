@@ -56,7 +56,7 @@ function MyPlayListVideo() {
   const [playlist, setplaylist] = useState(null)
   const renderThisPlayList = async () => {
     try {
-      const response = await axiosInstance.get(`/api/playlist/${playlistId}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/playlist/${playlistId}`);
       console.log(response) ; 
       toast.success(response.data.message);
       setplaylist(response.data.data);
@@ -68,7 +68,7 @@ function MyPlayListVideo() {
   const [user, setuser] = useState(null)
   const renderPlayListOwner = async () => {
     try {
-      const response = await axiosInstance.get(`/api/users/c/${username}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/users/c/${username}`);
       console.log(response) ; 
       toast.success(response.data.message);
       setuser(response.data.data);
@@ -80,7 +80,7 @@ function MyPlayListVideo() {
   const [noOfSubscribers, setNoOfSubscribers] = useState(80) ;    
   const fetchNoOfSub = async () => {
     try { 
-      const response = await axiosInstance.get(`/api/subscriptions/c/${user?._id}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/subscriptions/c/${user?._id}`);
       setNoOfSubscribers(response.data.data.length);
     } catch (error) {
       toast.error(parseErrorMessage(error?.response?.data));
@@ -91,7 +91,7 @@ function MyPlayListVideo() {
   const [allVideosOfPlayList, setallVideosOfPlayList] = useState(null)
   const renderAllVideos = async () => {
     try {
-      const response = await axiosInstance.get(`/api/playlist/user/allvideos/${playlistId}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/playlist/user/allvideos/${playlistId}`);
       console.log(response) ; 
       toast.success(response.data.message);
       setallVideosOfPlayList(response.data.data.videos);
@@ -129,7 +129,7 @@ function MyPlayListVideo() {
 
 const handleDeleteButtonClickVideo = async (videoId) => {
   try {
-    const response = await axiosInstance.patch(`/api/playlist/remove/${videoId}/${playlistId}`);
+    const response = await axiosInstance.patch(`https://yt-backend-lo6n.onrender.com/api/v1/playlist/remove/${videoId}/${playlistId}`);
     toast.success(response.data.message);
     await renderAllVideos();
   } catch (error) {

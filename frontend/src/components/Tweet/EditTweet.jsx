@@ -15,7 +15,7 @@ function EditTweet({ TweetId, onClose , onUpdateSuccess }) {
   const updateTweet = async (data) => {
     try {
       console.log(data) ;
-      const response = await axiosInstance.patch(`/api/tweets/${TweetId}`, {
+      const response = await axiosInstance.patch(`https://yt-backend-lo6n.onrender.com/api/v1/tweets/${TweetId}`, {
         newContent: data.newContent, 
       });
       toast.success(response.data.message);

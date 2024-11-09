@@ -19,7 +19,7 @@ function MyChannelTweets() {
 
   const renderTweets = async () => {
     try {
-      const response = await axiosInstance.get(`/api/tweets/user/${user?._id}`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/tweets/user/${user?._id}`);
       // toast.success(response.data.message);
       console.log(response);
       setTweets(response.data.data);
@@ -35,7 +35,7 @@ function MyChannelTweets() {
     if (newtweet.trim()) {
       try {
         console.log("creating tweet with data : " + newtweet);
-        const response = await axiosInstance.post("/api/tweets/", {
+        const response = await axiosInstance.post("https://yt-backend-lo6n.onrender.com/api/v1/tweets/", {
           content: newtweet,
         });
         // toast.success(response.data.message);
@@ -56,7 +56,7 @@ function MyChannelTweets() {
 
   const handleDeleteButtonClick = async (tweetId) => {
     try {
-      const response = await axiosInstance.delete(`/api/tweets/${tweetId}`);
+      const response = await axiosInstance.delete(`https://yt-backend-lo6n.onrender.com/api/v1/tweets/${tweetId}`);
       // toast.success(response.data.message);
       await renderTweets();
     } catch (error) {
@@ -70,7 +70,7 @@ function MyChannelTweets() {
 
   const toggleLike = async (tweetId) => {
     try {
-      const response = await axiosInstance.post(`/api/likes/toggle/t/${tweetId}`);
+      const response = await axiosInstance.post(`https://yt-backend-lo6n.onrender.com/api/v1/likes/toggle/t/${tweetId}`);
       // toast.success(response.data.message);
       await renderTweets();
     } catch (error) {

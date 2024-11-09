@@ -64,7 +64,7 @@ function History() {
   useEffect(() => {
     const renderVideo = async () => {
       try {
-        const response = await axiosInstance.get(`/api/users/history`);
+        const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/users/history`);
         // toast.success(response.data.message);
         console.log("This is the response of history videos: " + response);
         setVideos(response.data.data);

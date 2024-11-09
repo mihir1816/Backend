@@ -25,7 +25,7 @@ function EditChannelInfo() {
     };
 
     try {
-      const response = await axiosInstance.patch(`/api/users/update-channel-info`, updatedInfo);
+      const response = await axiosInstance.patch(`https://yt-backend-lo6n.onrender.com/api/v1/users/update-channel-info`, updatedInfo);
       toast.success(response.data.message);
     } catch (error) {
       const errorMessage = error.response ? error.response.data : "Cannot change channel info. Please try again...";

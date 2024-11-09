@@ -25,7 +25,7 @@ export const publishVideo = createAsyncThunk("video/publishVideo", async (data) 
 
 export const getVideo = createAsyncThunk("video/getVideo", async (videoId) => {
   try {
-    const response = await axiosInstance.get(`/api/videos/${videoId}`);
+    const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/videos/${videoId}`);
     toast.success(response.data.message);
     return response.data.data;
   } catch (error) {
@@ -38,7 +38,7 @@ export const getAllVideos = createAsyncThunk(
   "video/getAllVideos",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axiosInstance.get(`/api/videos`);
+      const response = await axiosInstance.get(`https://yt-backend-lo6n.onrender.com/api/v1/videos`);
       return response.data.data; // Assuming this is where the videos are located
     } catch (error) {
       return rejectWithValue(error.response?.data || error.message);
