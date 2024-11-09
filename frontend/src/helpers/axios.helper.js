@@ -1,19 +1,25 @@
 import axios from "axios";
-import { loadProgressBar } from "axios-progress-bar";
-import "axios-progress-bar/dist/nprogress.css";
-
-// const baseURL = "http://localhost:8000/api/v1";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 
 export const axiosInstance = axios.create({
   withCredentials: true,
 });
 
-// axiosInstance.interceptors.request.use((config) => {
-//   const token = localStorage.getItem("token");
-//   if (token) {
-//     config.headers.Authorization = `Bearer ${token}`;
-//   }
-//   return config;
-// });
+// Start NProgress when a request is made
+axiosInstance.interceptors.request.use((config) => {
+  NProgress.start();
+  return config;
+});
 
-loadProgressBar({}, axiosInstance);
+// Complete NProgress when a response is received
+axiosInstance.interceptors.response.use(
+  (response) => {
+    NProgress.done();
+    return response;
+  },
+  (error) => {
+    NProgress.done();
+    return Promise.reject(error);
+  }
+);
