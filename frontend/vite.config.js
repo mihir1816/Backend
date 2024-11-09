@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:8000", // Target your backend server
+        target: "https://yt-backend-lo6n.onrender.com", // Target your backend server
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, "/api/v1"), // Ensure the correct API version
       },
