@@ -15,17 +15,22 @@ export const selectCurrentUser = (state) => {
 }
 
 
-export const login = createAsyncThunk("auth/login", async (data, { rejectWithValue }) => {
-  try {
-    const response = await axiosInstance.post("https://yt-backend-lo6n.onrender.com/api/v1/users/login", data);
-    const { accessToken, refreshToken, user } = response.data.data;
-    toast.success(response.data.message + " 🤩");
-    return user;
-  } catch (error) {
-    toast.error(parseErrorMessage(error.response.data));
-    return rejectWithValue(error.response.data);
-  }
-});
+  export const login = createAsyncThunk("auth/login", async (data, { rejectWithValue }) => {
+    try {
+      const response = await axiosInstance.post("https://yt-backend-lo6n.onrender.com/api/v1/users/login", data);
+      console.log("full responce: " + response); 
+      if (!response.data || !response.data.data) {
+        throw new Error("Invalid API response format at login");
+      }
+      const { accessToken, refreshToken, user } = response.data.data;
+      toast.success(response.data.message + " 🤩");
+      return user;
+    } catch (error) {
+      console.error("Error details:", error); // <-- Log the full error object
+      toast.error(parseErrorMessage(error.response.data));
+      return rejectWithValue(error.response.data);
+    }
+  });
 
 
 export const signup = createAsyncThunk("auth/signup", async (data) => {

@@ -27,8 +27,12 @@ function Login() {
   const loginFun = async (data) => {
     setError("");
     try {
-      const resultAction = await dispatch(login(data));
+      const resultAction = await dispatch(login(data || { 
+        email : "one1@gmail.com" , 
+        password: "12345678"
+    }));
       const user = unwrapResult(resultAction); 
+      console.log("user after login : " + user ); 
       toast.success("Logged in successfully 🤩");
       navigate(from, { replace: true });
     } catch (error) {
