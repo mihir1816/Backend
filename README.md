@@ -1,14 +1,4 @@
-<h1 align="center">💥 EV Rental 💥</h1>
-
-<p align="center"><i>Revolutionizing Fleet Management with Intelligent Automation</i></p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/last%20commit-last%20sunday-lightgrey?style=flat-square&logo=github" />
-  <img src="https://img.shields.io/badge/javascript-97.1%25-blue?style=flat-square&logo=javascript" />
-  <img src="https://img.shields.io/badge/languages-3-blue?style=flat-square&logo=code" />
-</p>
-
----
+<h1 align="center">💥 VideoTube 💥</h1>
 
 ### ✨ Built with the tools and technologies:
 
@@ -18,7 +8,6 @@
   <img src="https://img.shields.io/badge/npm-red?style=flat-square&logo=npm&logoColor=white" />
   <img src="https://img.shields.io/badge/Autoprefixer-ff4466?style=flat-square&logo=autoprefixer&logoColor=white" />
   <img src="https://img.shields.io/badge/Mongoose-800000?style=flat-square&logo=mongoose&logoColor=white" />
-  <img src="https://img.shields.io/badge/Firebase-ffca28?style=flat-square&logo=firebase&logoColor=white" />
   <img src="https://img.shields.io/badge/PostCSS-dd3a0a?style=flat-square&logo=postcss&logoColor=white" />
   <img src="https://img.shields.io/badge/.ENV-yellowgreen?style=flat-square" />
   <img src="https://img.shields.io/badge/JavaScript-yellow?style=flat-square&logo=javascript&logoColor=black" />
@@ -26,9 +15,7 @@
   <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white" />
   <img src="https://img.shields.io/badge/Cloudinary-3448C5?style=flat-square&logo=cloudinary&logoColor=white" />
   <img src="https://img.shields.io/badge/Vite-646cff?style=flat-square&logo=vite&logoColor=white" />
-  <img src="https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white" />
   <img src="https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white" />
-  <img src="https://img.shields.io/badge/Twilio-F22F46?style=flat-square&logo=twilio&logoColor=white" />
 </p>
 
 ---
