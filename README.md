@@ -106,7 +106,7 @@
 2. **Navigate to the project directory:**
 
     ```bash
-    cd Deep-Drillers-2.0
+    cd Backend
     ```
 3. ⚙️ Environment Variables
 
