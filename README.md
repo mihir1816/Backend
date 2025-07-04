@@ -25,7 +25,7 @@
 | Content              | Link                                                                             |
 | ---------------------|----------------------------------------------------------------------------------|
 | Live Link            | [click here](https://yt-frontend-3wa2.onrender.com)                              |
-| API Documentation    | [click here](https://documenter.getpostman.com/view/32807699/2sA3XPChSM)         |
+| API Documentation    | [click here](https://.postman.co/workspace/My-Workspace~59a919ed-bc76-4d9c-8f94-d1bc76c2500d/collection/38495679-13ef2556-4d7d-455a-8106-9045835d7c8c?action=share&creator=38495679)         |
 | Model                | [click here ](https://app.eraser.io/workspace/cATefMPkrAdzR9c6teox?origin=share) |
 
 ## Overview
